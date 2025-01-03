@@ -88,7 +88,7 @@
   {
     # Build darwin flake using:
     # $ darwin-rebuild build --flake .#Terrences-Virtual-Machine
-    darwinConfigurations."Terrences-Virtual-Machine" = nix-darwin.lib.darwinSystem {
+    darwinConfigurations."baseline" = nix-darwin.lib.darwinSystem {
       modules = [
         configuration
         nix-homebrew.darwinModules.nix-homebrew
