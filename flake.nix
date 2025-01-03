@@ -16,14 +16,66 @@
           enable = true;
 
           brews = [
-            "mas"
             "bitwarden-cli"
+            # "gh"
+            # "git"
+            # "gnu-sed"
+            # "go@1.22"
+            # "gopass"
+            "jq"
+            # "kubectx"
+            # "lastpass-cli"
+            "mas"
             "oh-my-posh"
+            "p7zip"
+            # "paperkey"
+            # "pinentry-mac"
+            # "pipx"
+            # "pyenv-virtualenv"
+            # "python@3.10"
+            "sevenzip"
+            # "swagger-codegen"
+            # "terraform"
+            # "tree"
           ];
 
           casks = [
+            "adobe-acrobat-reader"
+            "aerospace"
             "alt-tab"
+            # "amazon-chime"
+            # "amazon-workspaces"
+            "aws-vault"
+            # "aws-vpn-client"
+            "devpod"
+            # "elgato-stream-deck"
+            # "font-cascadia-code-pl"
+            # "font-cascadia-code"
+            # "font-cascadia-mono-pl"
+            # "font-cascadia-mono"
+            # "font-jetbrains-mono-nerd-font"
+            # "font-jetbrains-mono"
+            "github"
+            "google-cloud-sdk"
+            "iterm2"
+            "karabiner-elements"
+            "keepassxc"
+            "monitorcontrol"
+            # "moom"
+            # "obs"
+            # "obsidian"
+            "okta"
+            "postman"
+            "raycast"
+            "rectangle"
+            # "session-manager-plugin"
+            "slack"
+            # "stats"
+            "todoist"
+            # "utm"
             "visual-studio-code"
+            # "warp"
+            # "zoom"
           ];
 
           masApps = {
@@ -51,8 +103,7 @@
           pkgs.azure-cli
           # pkgs.bitwarden-cli
           # pkgs.bitwarden-desktop
-          # There are a few versions of direnv to review.
-          pkgs.direnv
+          pkgs.direnv # There are a few versions of direnv to review.
           pkgs.fzf
           pkgs.gopass
           # pkgs.oh-my-posh
@@ -60,6 +111,8 @@
           # pkgs.vscode
           # pkgs.vscode-fhs
           pkgs.nixpkgs-fmt
+          pkgs.tree
+          pkgs.jq
         ];
 
         fonts.packages = [
