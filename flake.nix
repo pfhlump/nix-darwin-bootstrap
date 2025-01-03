@@ -47,6 +47,11 @@
 
         homebrew = {
           enable = true;
+          onActivation = {
+            autoUpdate = true;
+            cleanup = "zap";
+            upgrade = true;
+          };
 
           # Brew packages that are either:
           # 1. Not available in nixpkgs
@@ -117,10 +122,6 @@
           masApps = {
             # "Amazon Prime Video" = 545519333;
           };
-
-          onActivation.cleanup = "zap";
-          onActivation.autoUpdate = true;
-          onActivation.upgrade = true;
         };
 
         # List packages installed in system profile. To search by name, run:
