@@ -22,7 +22,7 @@
             # "gnu-sed"
             # "go@1.22"
             # "gopass"
-            "jq"
+            # "jq"
             # "kubectx"
             # "lastpass-cli"
             "mas"
