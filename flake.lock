@@ -35,6 +35,54 @@
         "type": "github"
       }
     },
+    "homebrew-bundle": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1735922156,
+        "narHash": "sha256-tOoJZFO27K73tdSe7sSBifXnZY7qcFOrfD4HcqBzmek=",
+        "owner": "homebrew",
+        "repo": "homebrew-bundle",
+        "rev": "93317652a34feaed7d8d4bfc52b9ac2de68c5cd1",
+        "type": "github"
+      },
+      "original": {
+        "owner": "homebrew",
+        "repo": "homebrew-bundle",
+        "type": "github"
+      }
+    },
+    "homebrew-cask": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1735931000,
+        "narHash": "sha256-rkxLZgD/8pOmUE1T+PbqmdlsURVdcyjwsq7QFGSUIu0=",
+        "owner": "homebrew",
+        "repo": "homebrew-cask",
+        "rev": "5c920c808b69aac788ea105d940a0e2cf3c0e0e9",
+        "type": "github"
+      },
+      "original": {
+        "owner": "homebrew",
+        "repo": "homebrew-cask",
+        "type": "github"
+      }
+    },
+    "homebrew-core": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1735930814,
+        "narHash": "sha256-G8JoKkII7WaD/gDTyLjsX297SB1gL0VF7VnFIyCCavk=",
+        "owner": "homebrew",
+        "repo": "homebrew-core",
+        "rev": "f711ae28896eaab47a8625910d01ddd50f657c0c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "homebrew",
+        "repo": "homebrew-core",
+        "type": "github"
+      }
+    },
     "nix-darwin": {
       "inputs": {
         "nixpkgs": [
@@ -141,9 +189,14 @@
     },
     "root": {
       "inputs": {
+        "homebrew-bundle": "homebrew-bundle",
+        "homebrew-cask": "homebrew-cask",
+        "homebrew-core": "homebrew-core",
         "nix-darwin": "nix-darwin",
         "nix-homebrew": "nix-homebrew",
-        "nixpkgs": "nixpkgs_3"
+        "nixpkgs": "nixpkgs_3",
+        "tap-aerospace": "tap-aerospace",
+        "tap-oktadeveloper": "tap-oktadeveloper"
       }
     },
     "systems": {
@@ -158,6 +211,38 @@
       "original": {
         "owner": "nix-systems",
         "repo": "default",
+        "type": "github"
+      }
+    },
+    "tap-aerospace": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1733437300,
+        "narHash": "sha256-r0gkdyPodHNid+bcAbVtSgtUR0BkyWa0mpTJkpaq8sw=",
+        "owner": "nikitabobko",
+        "repo": "homebrew-tap",
+        "rev": "64d46a5546d3fe6f7ab368f5a3df0984adfe7087",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nikitabobko",
+        "repo": "homebrew-tap",
+        "type": "github"
+      }
+    },
+    "tap-oktadeveloper": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1692307692,
+        "narHash": "sha256-cfpg+kfJrUTuwGjZL0Ma9AmFfuxB2bqpec9IilhOdnQ=",
+        "owner": "oktadeveloper",
+        "repo": "homebrew-tap",
+        "rev": "0191e4fcca9e6ff098073d980f321f3634548053",
+        "type": "github"
+      },
+      "original": {
+        "owner": "oktadeveloper",
+        "repo": "homebrew-tap",
         "type": "github"
       }
     }

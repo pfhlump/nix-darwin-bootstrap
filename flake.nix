@@ -5,10 +5,36 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     nix-darwin.url = "github:LnL7/nix-darwin";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
+
+    # Setup: https://github.com/zhaofengli/nix-homebrew/blob/main/README.md
     nix-homebrew.url = "github:zhaofengli/nix-homebrew";
+
+    # Optional: Declarative tap management
+    homebrew-core = {
+      url = "github:homebrew/homebrew-core";
+      flake = false;
+    };
+    homebrew-cask = {
+      url = "github:homebrew/homebrew-cask";
+      flake = false;
+    };
+    homebrew-bundle = {
+      url = "github:homebrew/homebrew-bundle";
+      flake = false;
+    };
+
+    tap-aerospace = {
+      url = "github:nikitabobko/homebrew-tap";
+      flake = false;
+    };
+
+    tap-oktadeveloper = {
+      url = "github:oktadeveloper/homebrew-tap";
+      flake = false;
+    };
   };
 
-  outputs = inputs@{ self, nix-darwin, nixpkgs, nix-homebrew }:
+  outputs = inputs@{ self, nix-darwin, nixpkgs, nix-homebrew, homebrew-core, homebrew-cask, homebrew-bundle, tap-aerospace, tap-oktadeveloper, ... }:
     let
       configuration = { pkgs, config, ... }: {
         nixpkgs.config.allowUnfree = true;
@@ -113,6 +139,7 @@
           pkgs.nixpkgs-fmt
           pkgs.tree
           pkgs.jq
+          pkgs.bat
         ];
 
         fonts.packages = [
@@ -180,16 +207,24 @@
               autoMigrate = true;
 
               # Optional: Declarative tap management
-              # taps = {
-              #   "homebrew/homebrew-core" = homebrew-core;
-              #   "homebrew/homebrew-cask" = homebrew-cask;
-              #   "homebrew/homebrew-bundle" = homebrew-bundle;
-              # };
+              taps = {
+                # Note: uncomment if mutableTaps=false;
+                "homebrew/homebrew-core" = homebrew-core;
+                "homebrew/homebrew-cask" = homebrew-cask;
+                "homebrew/homebrew-bundle" = homebrew-bundle;
+
+                # Note: this is the github path to a builders homebrew location.
+                # ls -al /opt/homebrew/Library/Taps/nikitabobko
+                "nikitabobko/homebrew-tap" = tap-aerospace;
+                "oktadeveloper/homebrew-tap" = tap-oktadeveloper;
+              };
 
               # Optional: Enable fully-declarative tap management
               #
               # With mutableTaps disabled, taps can no longer be added imperatively with `brew tap`.
-              # mutableTaps = false;
+              # Note: If you have existing brew installation, you can rename the Taps directory:
+              # sudo mv /opt/homebrew/Library/Taps /opt/homebrew/Library/Taps.mutable
+              mutableTaps = false;
             };
           }
         ];
