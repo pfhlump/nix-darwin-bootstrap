@@ -6,6 +6,11 @@
     nix-darwin.url = "github:LnL7/nix-darwin";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
 
+    # Package time machine
+    # TODO: I can see this in flake.nix, but how to you reference this version in environment.systemPackages?
+    # https://www.nixhub.io/packages/ghostty
+    ghostty-1-0-0-nixpkgs.url = "github:nixos/nixpkgs/6d97d419e5a9b36e6293887a89a078cf85f5a61b";
+
     # Setup: https://github.com/zhaofengli/nix-homebrew/blob/main/README.md
     nix-homebrew.url = "github:zhaofengli/nix-homebrew";
 
@@ -39,7 +44,7 @@
     };
   };
 
-  outputs = inputs@{ self, nix-darwin, nixpkgs, nix-homebrew, homebrew-core, homebrew-cask, homebrew-bundle, tap-aerospace, tap-oktadeveloper, ... }:
+  outputs = inputs@{ self, nix-darwin, nixpkgs, nix-homebrew, homebrew-core, homebrew-cask, homebrew-bundle, tap-aerospace, tap-oktadeveloper, ghostty-1-0-0-nixpkgs, ... }:
     let
       configuration = { pkgs, config, ... }: {
         # Allow packages that are not Open Source.
@@ -127,6 +132,7 @@
         # List packages installed in system profile. To search by name, run:
         # $ nix-env -qaP | grep wget
         environment.systemPackages = [
+          pkgs.devbox
           pkgs.alacritty
           pkgs.ghostty
           pkgs.neovim
@@ -157,6 +163,10 @@
           pkgs.nerd-fonts.jetbrains-mono
           # (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
         ];
+
+        system.defaults = {
+          # dock.autohide = false;
+        };
 
         system.activationScripts.applications.text =
           let
